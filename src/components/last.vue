@@ -26,7 +26,8 @@
             }
         },
         created () {
-            this.result = this.$router.currentRoute.params.result + 1
+            this.result = this.$router.currentRoute.params.result + 1;
+            this.aniIsActive = true;
         },
         methods: {
             jump () {
@@ -50,7 +51,6 @@
             overflow: hidden
             @include translate-center(row)
                 bottom: 4%
-
             img:last-child
                 position: absolute
                 top: 0
@@ -64,4 +64,6 @@
         top: 0
         left: 0
         background-color: rgba(0, 0, 0, .75)
+
+
 </style>

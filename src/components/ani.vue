@@ -15,6 +15,7 @@
                 <img :src="result" alt="">
                 <img @click="jump" src="assets/scene03_btn.png" alt="">
             </div>
+            <img src="assets/font_top.png" alt="" v-if="fontTopSeen" class="font_top">
         </div>
     </div>
 </template>
@@ -42,12 +43,12 @@
             that.trans = that.trans.map(function(item, index) {
                 return {
                     top: '',
-                    transition: `all ${(index + 1) * .25}s ${index * .1}s`,
+                    transition: `all ${(index + 1) * .25}s ${index * .05}s`,
                     transform: `translate3d(${random(150, -150)}%, ${random(150, -150)}%, 0) rotate(${time * random(90, 180)}deg)`
                 }
             });
             resolve && resolve();
-        }, 100 * time);
+        }, 80 * time);
     };
     let touchStartLocation;
     let bol = false;
@@ -63,7 +64,8 @@
                 }),
                 isActive: false,
                 result: '',
-                seenResult: false
+                seenResult: false,
+                fontTopSeen: false
             }
         },
         methods: {
@@ -84,7 +86,6 @@
                     wait(() => {
                         this.trans[index].transform = 'scale(2) rotateY(540deg)';
                         this.trans[index].opacity = 0;
-
                     }, 250);
                     wait(() =>{
                         if (numb === 0) numb = random(1, 8);
@@ -102,7 +103,7 @@
 
             this.trans = this.trans.map(function(item, index) {
                 return {
-                    transition: `all ${(index + 1) * .25}s ${index * .1}s`
+                    transition: `all ${(index + 1) * .25}s ${index * .05}s`
                 }
             });
 
@@ -116,7 +117,7 @@
             .then(() => {
                 this.trans = this.trans.map(function(item, index) {
                     return {
-                        transition: `all ${(index + 1) * .25}s ${index * .1}s`,
+                        transition: `all ${(index + 1) * .25}s ${index * .05}s`,
                         transform: `translate3d(0, 0, 0) rotate(0)`,
                         top: ''
                     }
@@ -125,12 +126,13 @@
                     bol = true;
                     this.trans = this.trans.map(function(item, index) {
                         return {
-                            transition: `all ${(index + 1) * .25}s ${index * .1}s`,
+                            transition: `all ${(index + 1) * .25}s ${index * .05}s`,
                             transform: `rotate(${-55 + index * 15}deg) translate3d(0, -100%, 0)`,
                             top: '',
                             opacity: ''
                         }
                     });
+                    this.fontTopSeen = true
                 }, 200);
             })
         }
@@ -157,7 +159,10 @@
             position: absolute
             left: 0
             top: 0
-
+        .font_top
+            position: absolute
+            top: 90%
+            left: -90%
 
     .opa
         img
