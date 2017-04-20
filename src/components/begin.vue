@@ -29,5 +29,5 @@
 
 
     .pic
-        margin-bottom: 30%
+        margin-bottom: 20%
 </style>

@@ -71,7 +71,7 @@
 
 
     .title
-        margin-bottom: 10%
+        margin-bottom: 0
         @include animation(title, 2s infinite)
             from, to
                 @include transform(translate3d(0, 0, 0))

@@ -43,7 +43,7 @@
             that.trans = that.trans.map(function(item, index) {
                 return {
                     top: '',
-                    transition: `all ${(index + 1) * .25}s ${index * .05}s`,
+                    transition: `all ${.75}s ${index * .1}s`,
                     transform: `translate3d(${random(150, -150)}%, ${random(150, -150)}%, 0) rotate(${time * random(90, 180)}deg)`
                 }
             });
@@ -103,7 +103,7 @@
 
             this.trans = this.trans.map(function(item, index) {
                 return {
-                    transition: `all ${(index + 1) * .25}s ${index * .05}s`
+                    transition: `all ${.75}s ${index * .1}s`
                 }
             });
 
@@ -117,7 +117,7 @@
             .then(() => {
                 this.trans = this.trans.map(function(item, index) {
                     return {
-                        transition: `all ${(index + 1) * .25}s ${index * .05}s`,
+                        transition: `all ${.75}s ${index * .1}s`,
                         transform: `translate3d(0, 0, 0) rotate(0)`,
                         top: ''
                     }
@@ -126,7 +126,7 @@
                     bol = true;
                     this.trans = this.trans.map(function(item, index) {
                         return {
-                            transition: `all ${(index + 1) * .25}s ${index * .05}s`,
+                            transition: `all ${.75}s ${index * .1}s`,
                             transform: `rotate(${-55 + index * 15}deg) translate3d(0, -100%, 0)`,
                             top: '',
                             opacity: ''
@@ -179,5 +179,5 @@
         img
             opacity: 1
             position: static
-            margin-top: 30%
+            margin-top: 20%
 </style>
